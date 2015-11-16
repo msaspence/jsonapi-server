@@ -4,7 +4,11 @@ jsonApi.define({
   namespace: "json:api",
   resource: "people",
   description: "Used to attribute work to specific people.",
-  handlers: jsonApi.mockHandlers,
+  handlers: new jsonApi.SqlHandler({
+    host: "localhost",
+    dialect: "mysql",
+    username: "root"
+  }),
   searchParams: { },
   attributes: {
     firstname: jsonApi.Joi.string().alphanum()

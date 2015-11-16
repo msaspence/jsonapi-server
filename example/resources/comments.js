@@ -4,7 +4,11 @@ jsonApi.define({
   namespace: "json:api",
   resource: "comments",
   description: "Allow people to attach short messages to articles",
-  handlers: jsonApi.mockHandlers,
+  handlers: new jsonApi.SqlHandler({
+    host: "localhost",
+    dialect: "mysql",
+    username: "root"
+  }),
   searchParams: { },
   attributes: {
     body: jsonApi.Joi.string()

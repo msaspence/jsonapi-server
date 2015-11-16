@@ -4,7 +4,11 @@ jsonApi.define({
   namespace: "json:api",
   resource: "photos",
   description: "Used to represent all the images in the system.",
-  handlers: jsonApi.mockHandlers,
+  handlers: new jsonApi.SqlHandler({
+    host: "localhost",
+    dialect: "mysql",
+    username: "root"
+  }),
   searchParams: { },
   attributes: {
     title: jsonApi.Joi.string()

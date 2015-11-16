@@ -4,7 +4,11 @@ jsonApi.define({
   namespace: "json:api",
   resource: "articles",
   description: "Represents the core content, people love to read articles.",
-  handlers: jsonApi.mockHandlers,
+  handlers: new jsonApi.SqlHandler({
+    host: "localhost",
+    dialect: "mysql",
+    username: "root"
+  }),
   searchParams: {
     query: jsonApi.Joi.string()
       .description("Fuzzy text match against titles")

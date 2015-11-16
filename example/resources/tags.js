@@ -4,7 +4,11 @@ jsonApi.define({
   namespace: "json:api",
   resource: "tags",
   description: "Used to group resources together, useful for finding related resources.",
-  handlers: jsonApi.mockHandlers,
+  handlers: new jsonApi.SqlHandler({
+    host: "localhost",
+    dialect: "mysql",
+    username: "root"
+  }),
   searchParams: { },
   attributes: {
     name: jsonApi.Joi.string()
