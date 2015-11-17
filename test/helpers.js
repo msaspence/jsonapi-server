@@ -3,6 +3,10 @@ var testHelpers = module.exports = { };
 
 var assert = require("assert");
 
+before(function(done) {
+  setTimeout(done, 2000);
+});
+
 testHelpers.validateError = function(json) {
   try {
     json = JSON.parse(json);
