@@ -21,7 +21,7 @@ jsonApi.define({
     content: jsonApi.Joi.string().required()
       .description("The main body of the article, provided as HTML")
       .example("<p>Paragraph 1. Lovely.</p><hr /><p>The End.</p>"),
-    created: jsonApi.Joi.date().format("YYYY-MM-DD")
+    created: jsonApi.Joi.date().format("YYYY-MM-DD").allow(null)
       .description("The date on which the article was created, YYYY-MM-DD")
       .example("2017-05-01"),
     author: jsonApi.Joi.one("people")
