@@ -7,7 +7,8 @@ jsonApi.define({
   handlers: new jsonApi.SqlHandler({
     host: "localhost",
     dialect: "mysql",
-    username: "root"
+    username: "root",
+    logging: false // console.log
   }),
   searchParams: {
     query: jsonApi.Joi.string()
